@@ -1,442 +1,456 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lista de Exercícios - JavaScript String API</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
-      color: #1f2937;
-      line-height: 1.6;
-    }
-
-    header {
-      background: #111827;
-      color: #fff;
-      padding: 32px 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0 0 8px;
-      font-size: 2rem;
-    }
-
-    header p {
-      margin: 0;
-      color: #d1d5db;
-    }
-
-    main {
-      width: min(1000px, 92%);
-      margin: 32px auto;
-    }
-
-    .questao {
-      background: #fff;
-      border-radius: 12px;
-      padding: 24px;
-      margin-bottom: 22px;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-      border-left: 5px solid #2563eb;
-    }
-
-    .questao h2 {
-      margin-top: 0;
-      color: #1d4ed8;
-      font-size: 1.3rem;
-    }
-
-    pre {
-      background: #111827;
-      color: #f9fafb;
-      padding: 16px;
-      border-radius: 8px;
-      overflow-x: auto;
-    }
-
-    code {
-      font-family: Consolas, Monaco, monospace;
-    }
-
-    .conceitos {
-      background: #eff6ff;
-      border: 1px solid #bfdbfe;
-      padding: 12px 14px;
-      border-radius: 8px;
-      margin-top: 16px;
-    }
-
-    .input {
-        padding: 3px;
-        border: 1px solid #333;
-        width: 300px;
-        border-radius: 5px;
-        margin-bottom: 10px;
-    }
-    .btn {
-        display: block;
-    }
-    .desafio {
-      background: #fff7ed;
-      border: 1px solid #fed7aa;
-      padding: 12px 14px;
-      border-radius: 8px;
-      margin-top: 16px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background: #fff;
-      margin-top: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
-    }
-
-    th, td {
-      padding: 12px;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: left;
-    }
-
-    th {
-      background: #2563eb;
-      color: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 24px;
-      color: #6b7280;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
-<body>
-
-  <header>
-    <h1>Lista de Exercícios — JavaScript String API</h1>
-    <p>10 exercícios práticos com dificuldade progressiva</p>
-  </header>
-
-  <main>
-
-    <section class="questao">
-      <h2>1. Padronização de nome</h2>
-      <p>Considere o código abaixo:</p>
-
-      <pre><code>const nome = "   joÃO da silVA   ";</code></pre>
-
-      <p>Crie um programa que:</p>
-      <ol>
-        <li>Remova os espaços no início e no final da string.</li>
-        <li>Converta o nome para letras minúsculas.</li>
-        <li>Exiba o resultado no console.</li>
-      </ol>
-
-      <p><strong>Resultado esperado:</strong></p>
-      <pre><code>joão da silva</code></pre>
-
-      <div class="conceitos">
-        <strong>Conceitos:</strong> <code>trim()</code>, <code>toLowerCase()</code>.
-      </div>
-
-      <div id="questao1" class="questao">
-        <input type="text" id="input1" placeholder="Digite uma string de teste" class="input">
-        <button class="btn" id="btn1">Remover espaços vazios</button>
-        <p id="resultado1" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>2. Verificação de domínio de e-mail</h2>
-
-      <pre><code>const email = "aluno@exemplo.com";</code></pre>
-
-      <p>Escreva um programa que verifique se o e-mail pertence ao domínio <code>@exemplo.com</code>.</p>
-
-      <p>O programa deverá imprimir:</p>
-      <pre><code>E-mail válido</code></pre>
-
-      <p>ou:</p>
-      <pre><code>E-mail inválido</code></pre>
-
-      <div class="conceitos">
-        <strong>Conceito principal:</strong> <code>endsWith()</code>.
-      </div>
-
-      <div id="questao2" class="questao">
-        <input type="text" id="input2" placeholder="Digite um email teste" class="input">
-        <button class="btn" id="btn2">Executar</button>
-        <p id="resultado2" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>3. Contagem de caracteres</h2>
-
-      <pre><code>const frase = "JavaScript é muito interessante";</code></pre>
-
-      <p>Crie um programa que mostre:</p>
-      <ol>
-        <li>A quantidade total de caracteres.</li>
-        <li>A quantidade de caracteres desconsiderando os espaços.</li>
-      </ol>
-
-      <p><strong>Exemplo de saída:</strong></p>
-      <pre><code>Total: 32
-Sem espaços: 28</code></pre>
-
-      <div class="conceitos">
-        <strong>Conceitos:</strong> <code>length</code>, <code>replaceAll()</code>.
-      </div>
-
-      <div id="questao3" class="questao">
-        <input type="text" id="input3" placeholder="Digite uma frase teste" class="input">
-        <button class="btn" id="btn3">Executar</button>
-        <p id="resultado3" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>4. Busca de palavra</h2>
-
-      <pre><code>const mensagem = "Estou estudando JavaScript para desenvolver aplicações web.";</code></pre>
-
-      <p>Verifique se a palavra <code>JavaScript</code> aparece na mensagem.</p>
-
-      <p>O programa deve exibir:</p>
-      <pre><code>A mensagem contém JavaScript.</code></pre>
-
-      <p>ou:</p>
-      <pre><code>A mensagem não contém JavaScript.</code></pre>
-
-      <div class="conceitos">
-        <strong>Conceito principal:</strong> <code>includes()</code>.
-      </div>
-
-      <div id="questao4" class="questao">
-        <textarea id="input4" placeholder="Digite uma frase teste" class="input"></textarea>
-        <button class="btn" id="btn4">Executar</button>
-        <p id="resultado4" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>5. Extração de nome de usuário</h2>
-
-      <pre><code>const email = "carlos.silva@gmail.com";</code></pre>
-
-      <p>Extraia somente o nome do usuário, ou seja, a parte que aparece antes do <code>@</code>.</p>
-
-      <p><strong>Resultado esperado:</strong></p>
-      <pre><code>carlos.silva</code></pre>
-
-      <div class="conceitos">
-        <strong>Sugestão:</strong> utilize <code>indexOf()</code> e <code>slice()</code>.
-      </div>
-
-      <div id="questao5" class="questao">
-        <input type="text" id="input5" placeholder="Digite um nome teste" class="input">
-        <button class="btn" id="btn5">Executar</button>
-        <p id="resultado5" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>6. Substituição de informações</h2>
-
-      <pre><code>const mensagem = "Olá, João! Seja bem-vindo, João!";</code></pre>
-
-      <p>Substitua todas as ocorrências de <code>João</code> por <code>Maria</code>.</p>
-
-      <p><strong>Resultado esperado:</strong></p>
-      <pre><code>Olá, Maria! Seja bem-vindo, Maria!</code></pre>
-
-      <div class="conceitos">
-        <strong>Conceito principal:</strong> <code>replaceAll()</code>.
-      </div>
-
-      <div class="desafio">
-        <strong>Desafio extra:</strong> resolva também utilizando <code>replace()</code> com expressão regular.
-      </div>
-      <div id="questao6" class="questao">
-        <textarea id="input6" placeholder="Digite uma frase teste" class="input"></textarea>
-        <button class="btn" id="btn6">Executar</button>
-        <p id="resultado6" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>7. Formatação de código de produto</h2>
-
-      <pre><code>const codigo = "abc123456";</code></pre>
-
-      <p>Crie um programa que transforme o código para o seguinte formato:</p>
-
-      <pre><code>ABC-123456</code></pre>
-
-      <p>O programa deverá:</p>
-      <ol>
-        <li>Converter as letras para maiúsculas.</li>
-        <li>Inserir um hífen depois das três primeiras letras.</li>
-      </ol>
-
-      <div class="conceitos">
-        <strong>Conceitos:</strong> <code>toUpperCase()</code>, <code>slice()</code>.
-      </div>
-
-      <div id="questao7" class="questao">
-        <input type="text" id="input7" placeholder="Digite um código de teste" class="input">
-        <button class="btn" id="btn7">Executar</button>
-        <p id="resultado7" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>8. Inversão de uma string</h2>
-
-      <pre><code>const palavra = "javascript";</code></pre>
-
-      <p>Crie uma função chamada <code>inverterString()</code> que receba uma string e retorne os caracteres na ordem inversa.</p>
-
-      <p><strong>Exemplo:</strong></p>
-      <pre><code>console.log(inverterString("javascript"));</code></pre>
-
-      <p><strong>Resultado esperado:</strong></p>
-      <pre><code>tpircsavaj</code></pre>
-
-      <div class="desafio">
-        <strong>Restrição:</strong> não utilize um loop <code>for</code> para realizar a inversão.
-      </div>
-
-      <div class="conceitos">
-        <strong>Conceitos:</strong> <code>split()</code>, <code>reverse()</code>, <code>join()</code>.
-      </div>
-
-      <div id="questao8" class="questao">
-        <textarea id="input8" placeholder="Digite uma frase teste" class="input"></textarea>
-        <button class="btn" id="btn8">Executar</button>
-        <p id="resultado8" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>9. Análise de uma senha</h2>
-
-      <pre><code>const senha = "JavaScript123";</code></pre>
-
-      <p>Crie uma função que verifique se a senha atende aos seguintes requisitos:</p>
-
-      <ul>
-        <li>Possui pelo menos 8 caracteres.</li>
-        <li>Possui pelo menos uma letra maiúscula.</li>
-        <li>Possui pelo menos uma letra minúscula.</li>
-        <li>Possui pelo menos um número.</li>
-      </ul>
-
-      <p>A função deverá retornar <code>true</code> caso todos os requisitos sejam atendidos ou <code>false</code> caso contrário.</p>
-
-      <div class="desafio">
-        <strong>Desafio:</strong> resolva utilizando principalmente operações sobre <code>String</code>.
-      </div>
-
-      <div id="questao9" class="questao">
-        <input type="text" id="input9" placeholder="Digite uma senha teste" class="input">
-        <button class="btn" id="btn9">Executar</button>
-        <p id="resultado9" class="resultado"></p>
-      </div>
-    </section>
-
-    <section class="questao">
-      <h2>10. Formatação de nome completo</h2>
-
-      <pre><code>const nome = "   maria   da   silva   ";</code></pre>
-
-      <p>Crie uma função <code>formatarNome()</code> que:</p>
-
-      <ol>
-        <li>Remova espaços desnecessários no início e no final.</li>
-        <li>Elimine espaços duplicados entre as palavras.</li>
-        <li>Converta o nome para letras minúsculas.</li>
-        <li>Coloque a primeira letra de cada palavra em maiúscula.</li>
-      </ol>
-
-      <p><strong>Resultado esperado:</strong></p>
-      <pre><code>Maria Da Silva</code></pre>
-
-      <div class="conceitos">
-        <strong>Sugestão:</strong> utilize <code>trim()</code>, <code>split()</code>, <code>map()</code>,
-        <code>toLowerCase()</code>, <code>toUpperCase()</code>, <code>slice()</code> e <code>join()</code>.
-      </div>
-
-      <div id="questao10" class="questao">
-        <input type="text" id="input10" placeholder="Digite um nome teste" class="input">
-        <button class="btn" id="btn10">Executar</button>
-        <p id="resultado10" class="resultado"></p>
-      </div>
-    </section>
-
-    <h2>Progressão de dificuldade</h2>
-
-    <table>
-      <thead>
-        <tr>
-          <th>Exercício</th>
-          <th>Tema principal</th>
-          <th>Nível</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>1</td><td>trim() / maiúsculas e minúsculas</td><td>⭐</td></tr>
-        <tr><td>2</td><td>endsWith()</td><td>⭐</td></tr>
-        <tr><td>3</td><td>length / replaceAll()</td><td>⭐⭐</td></tr>
-        <tr><td>4</td><td>includes()</td><td>⭐⭐</td></tr>
-        <tr><td>5</td><td>indexOf() / slice()</td><td>⭐⭐</td></tr>
-        <tr><td>6</td><td>replace() / replaceAll()</td><td>⭐⭐⭐</td></tr>
-        <tr><td>7</td><td>slice() / toUpperCase()</td><td>⭐⭐⭐</td></tr>
-        <tr><td>8</td><td>split() / reverse() / join()</td><td>⭐⭐⭐</td></tr>
-        <tr><td>9</td><td>Validação de senha</td><td>⭐⭐⭐⭐</td></tr>
-        <tr><td>10</td><td>Tratamento e formatação de texto</td><td>⭐⭐⭐⭐⭐</td></tr>
-      </tbody>
-    </table>
-
-  </main>
-
-  <footer>
-    Lista de exercícios de JavaScript — API String
-  </footer>
-
-<script>
-const $ = id => document.getElementById(id);
-function executar(n, fn) {
-  $('btn'+n).addEventListener('click', () => {
-    try { $('resultado'+n).textContent = fn($('input'+n).value); }
-    catch (e) { $('resultado'+n).textContent = 'Erro: ' + e.message; }
-  });
-}
-executar(1, s => { const r=s.trim().toLowerCase(); console.log(r); return r; });
-executar(2, s => s.trim().endsWith('@exemplo.com') ? 'E-mail válido' : 'E-mail inválido');
-executar(3, s => `Total: ${s.length} | Sem espaços: ${s.replaceAll(' ', '').length}`);
-executar(4, s => s.includes('JavaScript') ? 'A mensagem contém JavaScript.' : 'A mensagem não contém JavaScript.');
-executar(5, s => { const i=s.indexOf('@'); return i>=0 ? s.slice(0,i) : 'Digite um e-mail com @.'; });
-executar(6, s => s.replaceAll('João', 'Maria'));
-executar(7, s => s.length>=4 ? s.slice(0,3).toUpperCase()+'-'+s.slice(3) : 'Digite um código com pelo menos 4 caracteres.');
-function inverterString(s) { return s.split('').reverse().join(''); }
-executar(8, inverterString);
-function validarSenha(s) { return s.length>=8 && /[A-Z]/.test(s) && /[a-z]/.test(s) && /[0-9]/.test(s); }
-executar(9, s => String(validarSenha(s)));
-function formatarNome(s) { return s.trim().toLowerCase().split(/\s+/).filter(Boolean).map(p => p[0].toUpperCase()+p.slice(1)).join(' '); }
-executar(10, formatarNome);
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Exercícios — JavaScript Number API</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f4f6f8;
+        color: #1f2937;
+        line-height: 1.6;
+      }
+      header {
+        background: #111827;
+        color: white;
+        text-align: center;
+        padding: 34px 20px;
+      }
+      header h1 {
+        margin: 0 0 8px;
+        font-size: 2rem;
+      }
+      header p {
+        margin: 0;
+        color: #d1d5db;
+      }
+      main {
+        width: min(1000px, 92%);
+        margin: 32px auto;
+      }
+      .questao {
+        background: white;
+        border-radius: 12px;
+        padding: 24px;
+        margin-bottom: 22px;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+        border-left: 5px solid #2563eb;
+      }
+      .questao h2 {
+        margin-top: 0;
+        color: #1d4ed8;
+        font-size: 1.3rem;
+      }
+      pre {
+        background: #111827;
+        color: #f9fafb;
+        padding: 16px;
+        border-radius: 8px;
+        overflow-x: auto;
+      }
+      code {
+        font-family: Consolas, Monaco, monospace;
+      }
+      .conceitos {
+        background: #eff6ff;
+        border: 1px solid #bfdbfe;
+        padding: 12px 14px;
+        border-radius: 8px;
+        margin-top: 16px;
+      }
+      .desafio {
+        background: #fff7ed;
+        border: 1px solid #fed7aa;
+        padding: 12px 14px;
+        border-radius: 8px;
+        margin-top: 16px;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: white;
+        margin-top: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+      }
+      th,
+      td {
+        padding: 12px;
+        border-bottom: 1px solid #e5e7eb;
+        text-align: left;
+      }
+      th {
+        background: #2563eb;
+        color: white;
+      }
+      footer {
+        text-align: center;
+        padding: 24px;
+        color: #6b7280;
+        font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Lista de Exercícios — JavaScript Number API</h1>
+      <p>10 exercícios práticos com dificuldade progressiva</p>
+    </header>
+
+    <main>
+      <section class="questao">
+        <h2>1. Arredondamento de um número</h2>
+        <p>Considere:</p>
+        <pre><code>const valor = 17.684;</code></pre>
+        <p>Crie um programa que exiba:</p>
+        <ol>
+          <li>O número arredondado para o inteiro mais próximo.</li>
+          <li>O número arredondado para baixo.</li>
+          <li>O número arredondado para cima.</li>
+        </ol>
+        <p><strong>Resultado esperado:</strong></p>
+        <pre><code>18
+17
+18</code></pre>
+        <div class="conceitos">
+          <strong>Conceitos:</strong> <code>Math.round()</code>,
+          <code>Math.floor()</code>, <code>Math.ceil()</code>.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>2. Formatação de casas decimais</h2>
+        <pre><code>const preco = 149.98765;</code></pre>
+        <p>Exiba o preço com exatamente duas casas decimais.</p>
+        <p><strong>Resultado esperado:</strong></p>
+        <pre><code>149.99</code></pre>
+        <div class="conceitos">
+          <strong>Conceito principal:</strong> <code>toFixed()</code>.
+        </div>
+        <div class="desafio">
+          <strong>Desafio:</strong> transforme o resultado em um número
+          novamente, em vez de deixá-lo como string.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>3. Conversão de string para número</h2>
+        <pre><code>const valor1 = "25";
+const valor2 = "17.5";</code></pre>
+        <p>Converta os dois valores para números e calcule:</p>
+        <ol>
+          <li>A soma.</li>
+          <li>A diferença.</li>
+          <li>O produto.</li>
+          <li>O quociente.</li>
+        </ol>
+        <p><strong>Resultado esperado:</strong></p>
+        <pre><code>Soma: 42.5
+Diferença: 7.5
+Produto: 437.5
+Quociente: 1.428571...</code></pre>
+        <div class="conceitos">
+          <strong>Conceitos:</strong> <code>Number()</code>, operações
+          aritméticas.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>4. Verificação de número válido</h2>
+        <p>Considere:</p>
+        <pre><code>const valor = "123.45";</code></pre>
+        <p>
+          Crie um programa que verifique se o conteúdo pode ser convertido para
+          um número válido.
+        </p>
+        <p>O programa deverá informar:</p>
+        <pre><code>Valor numérico válido</code></pre>
+        <p>ou:</p>
+        <pre><code>Valor inválido</code></pre>
+        <div class="conceitos">
+          <strong>Conceitos:</strong> <code>Number()</code>,
+          <code>Number.isNaN()</code>.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>5. Verificação de inteiro</h2>
+        <pre><code>const numero = 42.0;</code></pre>
+        <p>Verifique se o valor armazenado na variável é um número inteiro.</p>
+        <p>O programa deverá exibir:</p>
+        <pre><code>O número é inteiro.</code></pre>
+        <p>ou:</p>
+        <pre><code>O número não é inteiro.</code></pre>
+        <div class="conceitos">
+          <strong>Conceito principal:</strong> <code>Number.isInteger()</code>.
+        </div>
+        <div class="desafio">
+          <strong>Desafio:</strong> teste também os valores <code>42.5</code>,
+          <code>"42"</code> e <code>NaN</code>.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>6. Maior e menor número</h2>
+        <p>Considere o conjunto:</p>
+        <pre><code>const numeros = [17, 4, 89, 32, 12, 56];</code></pre>
+        <p>Crie um programa que encontre:</p>
+        <ol>
+          <li>O maior número.</li>
+          <li>O menor número.</li>
+        </ol>
+        <p><strong>Resultado esperado:</strong></p>
+        <pre><code>Maior: 89
+Menor: 4</code></pre>
+        <div class="conceitos">
+          <strong>Conceito principal:</strong> <code>Math.max()</code> e
+          <code>Math.min()</code>.
+        </div>
+        <div class="desafio">
+          <strong>Desafio:</strong> utilize o operador spread (<code>...</code>)
+          para passar os elementos do array aos métodos.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>7. Geração de número aleatório</h2>
+        <p>
+          Crie uma função chamada <code>gerarNumero()</code> que retorne um
+          número inteiro aleatório entre 1 e 100, incluindo os dois extremos.
+        </p>
+        <p>Exemplo de utilização:</p>
+        <pre><code>console.log(gerarNumero());</code></pre>
+        <p>
+          O resultado deverá ser um inteiro entre <strong>1</strong> e
+          <strong>100</strong>.
+        </p>
+        <div class="conceitos">
+          <strong>Conceitos:</strong> <code>Math.random()</code>,
+          <code>Math.floor()</code>.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>8. Cálculo de média</h2>
+        <pre><code>const nota1 = 7.5;
+const nota2 = 8.25;
+const nota3 = 9.0;</code></pre>
+        <p>
+          Calcule a média das três notas e exiba o resultado com duas casas
+          decimais.
+        </p>
+        <p><strong>Resultado esperado:</strong></p>
+        <pre><code>Média: 8.25</code></pre>
+        <div class="conceitos">
+          <strong>Conceitos:</strong> operações com números, divisão e
+          <code>toFixed()</code>.
+        </div>
+        <div class="desafio">
+          <strong>Desafio:</strong> crie uma função que receba qualquer
+          quantidade de notas.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>9. Limites numéricos</h2>
+        <p>Crie um programa que exiba:</p>
+        <ol>
+          <li>
+            O maior número inteiro seguro que o JavaScript consegue representar
+            com segurança.
+          </li>
+          <li>O menor número inteiro seguro.</li>
+          <li>O maior valor numérico finito.</li>
+        </ol>
+        <p>Utilize propriedades da classe <code>Number</code>.</p>
+        <div class="conceitos">
+          <strong>Conceitos:</strong> <code>Number.MAX_SAFE_INTEGER</code>,
+          <code>Number.MIN_SAFE_INTEGER</code>, <code>Number.MAX_VALUE</code>.
+        </div>
+        <div class="desafio">
+          <strong>Desafio:</strong> explique a diferença entre
+          <code>MAX_SAFE_INTEGER</code> e <code>MAX_VALUE</code>.
+        </div>
+      </section>
+
+      <section class="questao">
+        <h2>10. Validação completa de valores numéricos</h2>
+        <p>
+          Crie uma função chamada <code>analisarNumero()</code> que receba um
+          valor e informe:
+        </p>
+        <ul>
+          <li>Se o valor é realmente um número.</li>
+          <li>Se é um número inteiro.</li>
+          <li>Se é um número finito.</li>
+          <li>Se é um número seguro para operações inteiras.</li>
+        </ul>
+
+        <p>Teste a função com:</p>
+        <pre><code>analisarNumero(42);
+analisarNumero(42.5);
+analisarNumero("42");
+analisarNumero(Infinity);
+analisarNumero(NaN);</code></pre>
+
+        <div class="conceitos">
+          <strong>Conceitos:</strong>
+          <code>Number.isNaN()</code>, <code>Number.isInteger()</code>,
+          <code>Number.isFinite()</code>, <code>Number.isSafeInteger()</code>.
+        </div>
+
+        <div class="desafio">
+          <strong>Desafio:</strong> faça a função retornar um objeto contendo
+          todas as informações da análise.
+        </div>
+      </section>
+
+      <h2>Progressão de dificuldade</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Exercício</th>
+            <th>Tema principal</th>
+            <th>Nível</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Arredondamento</td>
+            <td>⭐</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Casas decimais</td>
+            <td>⭐</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Conversão de valores</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>NaN e validação</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Verificação de inteiros</td>
+            <td>⭐⭐</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Maior e menor valor</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Números aleatórios</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Média e formatação</td>
+            <td>⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Limites numéricos</td>
+            <td>⭐⭐⭐⭐</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Validação completa</td>
+            <td>⭐⭐⭐⭐⭐</td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+
+    <footer>Lista de exercícios de JavaScript — API Number</footer>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+      const respostas = {
+        1: () => {
+          const v = 17.684;
+          return `${Math.round(v)}\n${Math.floor(v)}\n${Math.ceil(v)}`;
+        },
+        2: () => {
+          const preco = 149.98765;
+          return `${preco.toFixed(2)} (como número: ${Number(preco.toFixed(2))})`;
+        },
+        3: () => {
+          const a = Number("25"),
+            b = Number("17.5");
+          return `Soma: ${a + b}\nDiferença: ${a - b}\nProduto: ${a * b}\nQuociente: ${a / b}`;
+        },
+        4: () => {
+          const v = Number("123.45");
+          return Number.isNaN(v) ? "Valor inválido" : "Valor numérico válido";
+        },
+        5: () => {
+          const n = 42.0;
+          return Number.isInteger(n)
+            ? "O número é inteiro."
+            : "O número não é inteiro.";
+        },
+        6: () => {
+          const ns = [17, 4, 89, 32, 12, 56];
+          return `Maior: ${Math.max(...ns)}\nMenor: ${Math.min(...ns)}`;
+        },
+        7: () => String(gerarNumero()),
+        8: () => {
+          const notas = [7.5, 8.25, 9.0];
+          return `Média: ${(notas.reduce((a, b) => a + b, 0) / notas.length).toFixed(2)}`;
+        },
+        9: () =>
+          `MAX_SAFE_INTEGER: ${Number.MAX_SAFE_INTEGER}\nMIN_SAFE_INTEGER: ${Number.MIN_SAFE_INTEGER}\nMAX_VALUE: ${Number.MAX_VALUE}`,
+        10: () =>
+          [42, 42.5, "42", Infinity, NaN]
+            .map(
+              (v) =>
+                `${String(v)} (${typeof v}): ${JSON.stringify(analisarNumero(v))}`,
+            )
+            .join("\n"),
+      };
+      function gerarNumero() {
+        return Math.floor(Math.random() * 100) + 1;
+      }
+      function analisarNumero(v) {
+        return {
+          numero: typeof v === "number" && !Number.isNaN(v),
+          inteiro: Number.isInteger(v),
+          finito: Number.isFinite(v),
+          inteiroSeguro: Number.isSafeInteger(v),
+        };
+      }
+      for (let i = 1; i <= 10; i++) {
+        const secoes = document.querySelectorAll("main > section.questao");
+        const area = document.createElement("div");
+        area.className = "area-resposta";
+        const botao = document.createElement("button");
+        botao.type = "button";
+        botao.textContent = "Executar exercício " + i;
+        const saida = document.createElement("pre");
+        saida.setAttribute("aria-live", "polite");
+        saida.textContent = "Clique para executar.";
+        botao.addEventListener("click", () => {
+          saida.textContent = respostas[i]();
+          console.log(`Exercício ${i}:`, saida.textContent);
+        });
+        area.append(botao, saida);
+        secoes[i - 1].append(area);
+      }
+    </script>
+  </body>
 </html>
